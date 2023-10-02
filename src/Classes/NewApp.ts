@@ -1,4 +1,4 @@
-/*import { Bike } from "./Classes/Bike";
+import { Bike } from "./Classes/Bike";
 import { Crypt } from "./Cryptography";
 import { Rent } from "./Rent";
 import { User } from "./User";
@@ -63,7 +63,9 @@ export class App {
     async returnBike(bikeId: string, userEmail: string): Promise<number> {
         const now = new Date()
         const rent = await this.rentRepo.findOpen(bikeId, userEmail)
-        if (!rent) throw new Error('Rent not found.')
+        if (!rent){
+            throw new RentNotFoundError()
+        }
         rent.end = now
         await this.rentRepo.update(rent.id, rent)
         rent.bike.available = true
@@ -93,9 +95,4 @@ export class App {
         return bike
     }
 }
-
-function diffHours(dt2: Date, dt1: Date) {
-  var diff = (dt2.getTime() - dt1.getTime()) / 1000;
-  diff /= (60 * 60);
-  return Math.abs(diff);
 }*/
