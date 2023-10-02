@@ -137,5 +137,7 @@ describe('App', () => {
             1234, 1234, 100.0, 'My bike', 5, [])
         bike.available = true
         await expect(this.rentRepo.findOpen(bike.id, user.email))..rejects.toThrow(RentNotFoundError)
+
+    )}
         
 })
