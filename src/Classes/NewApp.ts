@@ -48,7 +48,9 @@ export class App {
         const Frent = this.rentRepo.findUserRent(email)
         if(Frent){
             await this.userRepo.remove(email)
-        }    
+        }
+        else{
+            throw new RemoveUserError()
     }
     
     async rentBike(bikeId: string, userEmail: string): Promise<string> {
