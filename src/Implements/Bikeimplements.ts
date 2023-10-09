@@ -1,4 +1,4 @@
-import { Bike } from "../bike"
+import { Bike } from "../Bike"
 
 export interface BikeRepo {
     find(id: string): Promise<Bike>
