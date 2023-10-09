@@ -1,4 +1,4 @@
-import { Rent } from "../rent";
+import { Rent } from "../Rent";
 
 export interface RentRepo {
     add(rent: Rent): Promise<string>
