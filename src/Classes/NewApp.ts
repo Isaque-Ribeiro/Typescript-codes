@@ -7,9 +7,9 @@ import { UnavailableBikeError } from "../Errors/UnavailableBikeError";
 import { UserNotFoundError } from "../Errors/UserNotFoundError";
 import { DuplicateUserError } from "../Errors/DuplicateUserError";
 import { RentNotFoundError } from "../Errors/RentNotFoundError";
-import { RentRepo } from "./ports/rent-repo";
-import { UserRepo } from "./ports/user-repo";
-import { BikeRepo } from "./ports/bike-repo";
+import { RentRepo } from "./Implements/Bikeimplements";
+import { UserRepo } from "./Implements/Userimplements";
+import { BikeRepo } from "./Implements/Rentimplements";
 
 export class App {
     crypt: Crypt = new Crypt()
@@ -44,8 +44,10 @@ export class App {
     }
 
     async removeUser(email: string): Promise<void> {
-        await this.findUser(email)
-        await this.userRepo.remove(email)
+        const Fuser = await this.findUser(email)
+        if(this.rentRepo.findUserRent(email){
+            await this.userRepo.remove(email)
+        }    
     }
     
     async rentBike(bikeId: string, userEmail: string): Promise<string> {
