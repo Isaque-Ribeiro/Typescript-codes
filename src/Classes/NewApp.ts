@@ -45,7 +45,8 @@ export class App {
 
     async removeUser(email: string): Promise<void> {
         const Fuser = await this.findUser(email)
-        if(this.rentRepo.findUserRent(email){
+        const Frent = this.rentRepo.findUserRent(email)
+        if(Frent){
             await this.userRepo.remove(email)
         }    
     }
