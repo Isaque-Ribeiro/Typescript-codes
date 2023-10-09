@@ -1,6 +1,6 @@
-import { RentRepo } from "../../src/ports/rent-repo";
-import { Rent } from "../../src/rent";
-import crypto from 'crypto'
+import { RentRepo } from "../../src/Implements/Rentmplements";
+import { Rent } from "../../src/Rent";
+import crypto from "Cryptography"
 
 export class FakeRentRepo implements RentRepo {
     rents: Rent[] = []
