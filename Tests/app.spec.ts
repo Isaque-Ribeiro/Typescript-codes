@@ -135,10 +135,15 @@ describe('App', () => {
         const bike = new Bike('caloi mountainbike', 'mountain bike',
             1234, 1234, 100.0, 'My bike', 5, [])
         bike.available = true
-        await expect(this.rentRepo.findOpen(bike.id, user.email))..rejects.toThrow(RentNotFoundError)
+        await expect(this.rentRepo.findOpen(bike.id, user.email)).rejects.toThrow(RentNotFoundError)
 
     )}
 
-    it ('should 
-        
+    it ('should throw remove user error when trying to remove user who haves a rent', async () => {
+        const app = new App(userRepo, bikeRepo, rentRepo)
+        const user = new User('jose', 'jose@mail.com', '1234')
+        const bike = new Bike('caloi mountainbike', 'mountain bike',
+            1234, 1234, 100.0, 'My bike', 5, [])
+        await expect(this.rentRepo.findUserRent(user.email)).rejects.toThrow(RemoveUserError)
+    )}
 })
