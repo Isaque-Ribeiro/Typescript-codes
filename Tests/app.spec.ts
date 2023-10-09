@@ -1,19 +1,18 @@
 import sinon from "sinon"
-import { App } from "../src/app"
-import { Bike } from "../src/bike"
-import { User } from "../src/user"
-import { Location } from "../src/location"
-import { BikeNotFoundError } from "../src/errors/bike-not-found-error"
-import { UnavailableBikeError } from "../src/errors/unavailable-bike-error"
-import { UserNotFoundError } from "../src/errors/user-not-found-error"
-import { DuplicateUserError } from "../src/errors/duplicate-user-error"
-import { REntNOtFoundError } from "../src/errors/rent-not-found-error"
-import { FakeUserRepo } from "./doubles/fake-user-repo"
-import { FakeBikeRepo } from "./doubles/fake-bike-repo"
-import { FakeRentRepo } from "./doubles/fake-rent-repo"
-import { UserRepo } from "../src/ports/user-repo"
-import { BikeRepo } from "../src/ports/bike-repo"
-import { RentRepo } from "../src/ports/rent-repo"
+import { App } from "../src/NewApp"
+import { Bike } from "../src/Bike"
+import { User } from "../src/User"
+import { BikeNotFoundError } from "../src/Errors/BikeNotFoundError"
+import { UnavailableBikeError } from "../src/Errors/UnavailableBikeError"
+import { UserNotFoundError } from "../src/Errors/UserNotFoundError"
+import { DuplicateUserError } from "../src/Errors/DuplicateUserError"
+import { RentNOtFoundError } from "../src/Errors/RentNOtFoundError"
+import { FakeUserRepo } from "./Repositores/UserData"
+import { FakeBikeRepo } from "./Repositores/BikeData"
+import { FakeRentRepo } from "./Repositores/RentData"
+import { UserRepo } from "../src/Implements/Userimplements"
+import { BikeRepo } from "../src/Implements/Bikeimplements"
+import { RentRepo } from "../src/Implements/Rentimplements"
 
 
 let userRepo: UserRepo
@@ -139,5 +138,7 @@ describe('App', () => {
         await expect(this.rentRepo.findOpen(bike.id, user.email))..rejects.toThrow(RentNotFoundError)
 
     )}
+
+    it ('should 
         
 })
