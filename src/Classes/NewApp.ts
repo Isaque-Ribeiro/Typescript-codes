@@ -7,6 +7,7 @@ import { UnavailableBikeError } from "../Errors/UnavailableBikeError";
 import { UserNotFoundError } from "../Errors/UserNotFoundError";
 import { DuplicateUserError } from "../Errors/DuplicateUserError";
 import { RentNotFoundError } from "../Errors/RentNotFoundError";
+import { RemoveUserError } from "../Errors/RemoveUserError";
 import { RentRepo } from "./Implements/Bikeimplements";
 import { UserRepo } from "./Implements/Userimplements";
 import { BikeRepo } from "./Implements/Rentimplements";
