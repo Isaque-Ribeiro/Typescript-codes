@@ -1,8 +1,9 @@
-import { Bike } from "../Classes/Bike"
+import { Bike } from "../bike"
 
-export interface BikeRepo{
-    add(bike: Bike): Promise<Bike>;
-    find(bikeid: string, name: string): Promise<Bike>;
-    list(): Promise<Bike[]>;
-    remove(bikeid: string, name: string): Promise<void>;
+export interface BikeRepo {
+    find(id: string): Promise<Bike>
+    add(bike: Bike): Promise<string>
+    remove(id: string): Promise<void>
+    update(id: string, bike: Bike): Promise<void>
+    list(): Promise<Bike[]>
 }
