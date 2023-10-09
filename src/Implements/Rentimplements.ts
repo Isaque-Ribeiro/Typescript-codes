@@ -1,8 +1,7 @@
-import { Rent } from "../Classes/Rent"
+import { Rent } from "../rent";
 
-export interface RentRepo{
-    add(rent: Rent): Promise<Rent>;
-    find(bikeid: string, usersemail: string, userpw: string): Promise<Rent>;
-    list(): Promise<Rent[]>;
-    remove(bikeid: string, usersemail: string, userpw: string): Promise<void>;
+export interface RentRepo {
+    add(rent: Rent): Promise<string>
+    findOpen(bikeId: string, userEmail: string): Promise<Rent>
+    update(id: string, rent: Rent): Promise<void>
 }
