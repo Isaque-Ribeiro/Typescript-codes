@@ -1,33 +1,22 @@
 import { Bike } from "../../src/Bike";
 import { BikeRepo } from "../../src/Implements/Bikeimplements";
-import crypto from "../../src/Classes/Cryptography"
+import { Cryptography } from "../../src/Classes/Cryptography"
 
-export class FakeBikeRepo implements BikeRepo {
-    bikes: Bike[] = []
+export class BikeData implements BikeRepo {
+    public bikes: Bike[];
+    public crypt: Crypto;
 
-    async find(id: string): Promise<Bike> {
-        return this.bikes.find(bike => bike.id === id)
+    async add(bike: Bike): Promise <string|undefined> {
+        if(bike){
+            bike.id = crypt.createId()
+            this.bikes.push(bike)
+            return bike.id
+        }
     }
 
-    async add(bike: Bike): Promise<string> {
-        const newId = crypto.randomUUID()
-        bike.id = newId
-        this.bikes.push(bike)
-        return newId
+    async find(bikeId: string): Promise <Bike|undefined> {
+        const Fbike = this.bikes.find(bike => bike.id === bikeId)
+        if(Fbike){
+            return Fbike
+        }
     }
-
-    async remove(id: string): Promise<void> {
-        const bikeIndex = this.bikes.findIndex(bike => 
-            bike.id === id)
-        if (bikeIndex !== -1) this.bikes.splice(bikeIndex, 1)
-    }
-
-    async list(): Promise<Bike[]> {
-        return this.bikes
-    }
-
-    async update(id: string, bike: Bike): Promise<void> {
-        const bikeIndex = this.bikes.findIndex(bike => bike.id === id)
-        if (bikeIndex !== -1) this.bikes[bikeIndex] = bike
-    }
-}
