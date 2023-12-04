@@ -1,6 +1,5 @@
-import { Bike } from "../../../src/bike"
-import prisma from "../../../src/external/database/db"
-import { PrismaBikeRepo } from "../../../src/external/database/prisma-bike-repo"
+import { Bike } from "../../src/bike"
+import prisma from "./Tests/External_data/globalizing_prisma"
 
 describe('PrismaBikeRepo', () => {
     beforeEach(async () => {
