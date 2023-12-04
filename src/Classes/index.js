@@ -1,12 +1,12 @@
 import { App } from "./app";
 import { Bike } from "./bike";
-import { PrismaBikeRepo } from "./external/database/prisma-bike-repo";
-import { PrismaRentRepo } from "./external/database/prisma-rent-repo";
-import { PrismaUserRepo } from "./external/database/prisma-user-repo";
+import { PrismaBikeRepo } from "../../Tests/External_data/PrismaBikeRepo";
+import { PrismaRentRepo } from "../../Tests/External_data/PrismaRentRepo";
+import { PrismaUserRepo } from "../../Tests/External_data/PrismaUserRepo";
 import { Rent } from "./rent";
 import { User } from "./user";
 import sinon from 'sinon'
-import prisma from "./external/database/db"
+import prisma from "../../Tests/External_data/globalizing_prisma"
 
 async function main() {
     await prisma.user.deleteMany({})
